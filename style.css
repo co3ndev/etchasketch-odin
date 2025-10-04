@@ -28,14 +28,15 @@ body h1{
 .game-wrapper{
     display:flex;
     flex-wrap:wrap;
+    align-items:stretch;
     width: 432px;
     box-shadow: none;
 }
 
-.game-wrapper div{
+.boxsizing{
     border: 1px solid black;
-    height:25px;
     width:25px;
+    height:25px;
 }
 
 .game-wrapper div:hover{

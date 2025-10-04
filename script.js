@@ -1,45 +1,51 @@
 // game container. we need this to know where to add our div
 let gameWrapper = document.querySelector(".game-wrapper");
-// Div to be created
-let gridNumValue = 256;
+// # of rows/columns element id
 
  document.addEventListener('DOMContentLoaded', function() {
-    createGrid(256);
     console.log('DOM is ready!');
+    createGrid();
+
  });
-
-function cellSize(){
-    cellWHID = document.getElementById("grid-size");
-    cellWH = cellWHID.value;
-    cellSizeWH = 432 / cellWHID.value; 
-}
-
 function clearGrid(){
     gameWrapper.innerHTML = "";
 }
 
 function resetGrid(){
-    createGrid(gridNum);
+    createGrid();
 }
 
-function createGrid(gridNum){
+
+
+function createGrid(){
     clearGrid();
-    gridNumElement = document.getElementById("grid-size");
-    if (gridNum != 256)
-        gridNumValue = gridNumElement.value;
-    // create 16x16 grid
-    for (i =0; i <= gridNum -1; i++){
-        // cell size
-        cellSize();
+    let gridSizeElem = document.getElementById("grid-size");
+    let gridNum = 16; // default value
+    if (gridSizeElem && gridSizeElem.firstElementChild && !isNaN(gridSizeElem.firstElementChild.value)) {
+        gridNum = parseInt(gridSizeElem.firstElementChild.value, 10);
+    }
 
+    let gridSz = parseInt(gridSizeElem.firstElementChild.value, 10);
 
+    gridNum = gridNum * gridNum;
+
+    for (let i =0; i <= gridNum -1; i++){
         let newDiv = document.createElement("div");
         // assign id
-        newDiv.id = "gridBox";
+        newDiv.classList.add("boxsizing");
         newDiv.addEventListener("mouseover", function(){
             this.style.backgroundColor = "#222";
         });
         // add childs
         gameWrapper.appendChild(newDiv);
+
+        
     }
+    let boxSize = document.getElementsByClassName(".boxsizing");
+    let boxW = boxSize.style.width;
+    let boxH = boxSize.style.height;
+    boxW = 432 / gridSz + "px";
+    boxH = 432 / gridSz + "px";
+    console.log("Bippity")
+    console.log("Bippity")
  }

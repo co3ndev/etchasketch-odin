@@ -9,13 +9,13 @@
 <body>
     <div class="container">
         <h1>Etch-A-Sketch</h1>
-        <form>
-            <input type="number" id="grid-size" >
-            <button onclick="clearGrid(); createGrid(gridNum);">Resize</button>
+        <form id="grid-size">
+            <input type="number" id="input" class="input" name="input">
+            <button type="button" onclick="createGrid();">Resize</button>
         </form>
         <div class="game-wrapper">
         </div>
-        <button onclick="resetGrid()">Reset Game</button>
+        <button onclick="resetGrid();">Reset Game</button>
     </div>
     <script src="script.js"></script>
 </body>
