@@ -15,14 +15,14 @@ function resetGrid(){
     createGrid();
 }
 
-
-
 function createGrid(){
     clearGrid();
     let gridSizeElem = document.getElementById("grid-size");
     let gridNum = 16; // default value
     if (gridSizeElem && gridSizeElem.firstElementChild && !isNaN(gridSizeElem.firstElementChild.value)) {
-        gridNum = parseInt(gridSizeElem.firstElementChild.value, 10);
+        if (gridSizeElem.firstElementChild.value){
+            gridNum = parseInt(gridSizeElem.firstElementChild.value, 10);
+        }
     }
 
     let gridSz = parseInt(gridSizeElem.firstElementChild.value, 10);
@@ -32,20 +32,14 @@ function createGrid(){
     for (let i =0; i <= gridNum -1; i++){
         let newDiv = document.createElement("div");
         // assign id
-        newDiv.classList.add("boxsizing");
+        newDiv.id = "boxSizing";
         newDiv.addEventListener("mouseover", function(){
             this.style.backgroundColor = "#222";
         });
         // add childs
         gameWrapper.appendChild(newDiv);
 
-        
+        newDiv.style.width = 400 / gridSz + "px";
+        newDiv.style.height = 400 / gridSz + "px";
     }
-    let boxSize = document.getElementsByClassName(".boxsizing");
-    let boxW = boxSize.style.width;
-    let boxH = boxSize.style.height;
-    boxW = 432 / gridSz + "px";
-    boxH = 432 / gridSz + "px";
-    console.log("Bippity")
-    console.log("Bippity")
- }
+}

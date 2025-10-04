@@ -26,15 +26,20 @@ body h1{
 }
 
 .game-wrapper{
-    display:flex;
-    flex-wrap:wrap;
-    align-items:stretch;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: stretch;
     width: 432px;
+    max-height: 432px;
     box-shadow: none;
-}
+    overflow: hidden;
+    margin:3rem;
+}   
 
-.boxsizing{
-    border: 1px solid black;
+#boxSizing{
+
+    border: 0.5px solid black;
     width:25px;
     height:25px;
 }
@@ -42,4 +47,3 @@ body h1{
 .game-wrapper div:hover{
     background-color: #333;
 }
-
